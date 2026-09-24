@@ -75,7 +75,7 @@ const OFFERS = [
 
 const COMPAT = ["Cloud pública e privada", "Data warehouses e lakes", "ERPs e CRMs", "Bancos on-premise", "APIs e integrações existentes"];
 
-const CONTACT_EMAIL = "contato@ontarys.com";
+const CONTACT_EMAIL = "contato@ontarys.com.br";
 
 /* ——— Símbolo ————————————————————————————————————————— */
 
