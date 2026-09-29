@@ -315,6 +315,8 @@ export default function OntarysSite() {
 const CSS = `
 @import url('https://fonts.googleapis.com/css2?family=Michroma&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@500&display=swap');
 
+body{margin:0; background:#050505}
+
 .ont{
   --black:#050505; --ink:#141416; --line:#2A2C30; --graphite:#6C7178;
   --silver:#A8ADB4; --silver-hi:#E4E6E9; --white:#F5F6F7;
