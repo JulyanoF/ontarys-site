@@ -77,6 +77,12 @@ const COMPAT = ["Cloud pública e privada", "Data warehouses e lakes", "ERPs e C
 
 const CONTACT_EMAIL = "contato@ontarys.com.br";
 
+const SOCIAL_LINKS = [
+  { name: "LinkedIn", href: "https://www.linkedin.com/company/ontarys-solutions" },
+  { name: "Instagram", href: "https://www.instagram.com/ontarys.solutions/" },
+  { name: "Facebook", href: "https://www.facebook.com/people/Ontarys-Solutions/61594704824441/" },
+];
+
 /* ——— Símbolo ————————————————————————————————————————— */
 
 function Symbol({ size = 120, id = "s", animate = false }) {
@@ -132,6 +138,44 @@ function Logo({ size = 34 }) {
       <Symbol size={size} id="logo" />
       <span>ontarys</span>
     </a>
+  );
+}
+
+/* ——— Ícones sociais ———————————————————————————————— */
+
+function SocialIcon({ name }) {
+  if (name === "LinkedIn") {
+    return (
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm6 0h3.8v1.71h.05c.53-.96 1.83-1.97 3.77-1.97 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.39-2.11 2.9V21H9V9z" />
+      </svg>
+    );
+  }
+  if (name === "Instagram") {
+    return (
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+        <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" strokeWidth="1.7" />
+        <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" strokeWidth="1.7" />
+        <circle cx="17.2" cy="6.8" r="1" fill="currentColor" />
+      </svg>
+    );
+  }
+  return (
+    <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+      <path fill="currentColor" d="M13.5 21v-7.01h2.36l.36-2.73h-2.72V9.36c0-.79.22-1.33 1.36-1.33h1.45V5.6c-.25-.03-1.1-.1-2.1-.1-2.08 0-3.5 1.27-3.5 3.6v2.16H8.5v2.73h2.31V21h2.69z" />
+    </svg>
+  );
+}
+
+function SocialLinks() {
+  return (
+    <nav className="social" aria-label="Redes sociais da Ontarys">
+      {SOCIAL_LINKS.map((s) => (
+        <a key={s.name} href={s.href} target="_blank" rel="noopener noreferrer" className="social-link" aria-label={`Ontarys no ${s.name}`}>
+          <SocialIcon name={s.name} />
+        </a>
+      ))}
+    </nav>
   );
 }
 
@@ -305,6 +349,7 @@ export default function OntarysSite() {
       <footer className="foot">
         <Logo size={28} />
         <p>© 2026 Ontarys</p>
+        <SocialLinks />
       </footer>
     </div>
   );
@@ -413,6 +458,10 @@ body{margin:0; background:#050505}
 .foot{display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap;
   padding:28px clamp(20px,5vw,72px); border-top:1px solid var(--line)}
 .foot p{margin:0; font-size:14px; color:var(--graphite)}
+.social{display:flex; align-items:center; gap:10px}
+.social-link{display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px;
+  border:1px solid var(--line); border-radius:50%; color:var(--silver); transition:color .2s ease, border-color .2s ease, background-color .2s ease}
+.social-link:hover{color:var(--black); background:var(--silver-hi); border-color:var(--silver-hi)}
 
 @media (max-width:900px){
   .hero{grid-template-columns:1fr}
@@ -429,6 +478,7 @@ body{margin:0; background:#050505}
   .nav-open{display:flex}
   .nav a{padding:14px 0; border-bottom:1px solid var(--line)}
   .nav .nav-cta{margin-top:16px; text-align:center; border:0}
+  .foot{flex-direction:column; justify-content:center; text-align:center}
 }
 .how{padding:clamp(56px,7vw,96px) clamp(20px,5vw,72px); border-top:1px solid var(--line); max-width:1440px; margin:0 auto}
 .how-grid{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:clamp(32px,5vw,80px); align-items:start}
